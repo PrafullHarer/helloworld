@@ -3,32 +3,29 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 echo 'Project checkout successful'
             }
         }
 
-        stage('Check Python') {
+        stage('Python Version') {
             steps {
-                bat 'python --version'
+                bat '"C:\Users\student\AppData\Local\Programs\Python\Python311\python.exe" --version'
             }
         }
 
-        stage('Run Hello World') {
+        stage('Run Python Program') {
             steps {
-                bat 'python hello_world.py'
+                bat '"C:\Users\student\AppData\Local\Programs\Python\Python311\python.exe" hello_world.py'
             }
         }
-
     }
 
     post {
         success {
             echo 'BUILD SUCCESSFUL!'
         }
-
         failure {
             echo 'BUILD FAILED!'
         }
