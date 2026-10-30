@@ -3,31 +3,25 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                echo 'Checking out project...'
-                checkout scm
+                echo 'Project checkout successful'
             }
         }
 
-        stage('Python Version') {
+        stage('Check Python') {
             steps {
                 bat 'python --version'
             }
         }
 
-        stage('Run Python Program') {
+        stage('Run Hello World') {
             steps {
-                echo 'Running Hello World Program...'
                 bat 'python hello_world.py'
             }
         }
 
-        stage('Build Success') {
-            steps {
-                echo 'Hello World project executed successfully!'
-            }
-        }
     }
 
     post {
